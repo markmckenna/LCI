@@ -17,3 +17,7 @@ In general, building a system using this framework would go something like this:
 * Determine what your system's major logical components are going to be
 * Author each one as a module, in the language that seems most suitable for that component, with exports that express how that component will be used by others. Use unit tests to verify the behaviour of the module.
 * Author one or more 'connective tissue' applications that bring a selection of your (and other partys') components together and wire them up into a functional system.
+
+## Architecture
+
+This repository consists of a series of components that facilitate the general programming concept outlined above. The 'magic' consists of a set of 'client adapters', which are able to load code from a module written in a given language and identify its published API; and 'host adapters', which take a client adapter's published API and make it available natively in the host language. The host adapter is generally responsible for ensuring process isolation for messaging within the container, while the client adapter is responsible for sequencing and API management.
